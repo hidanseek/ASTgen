@@ -53,7 +53,6 @@ from AstGen.StringType import StringType
 from AstGen.ArrayType import ArrayType
 from AstGen.ErrorType import ErrorType
 
-# === 연산자 우선순위 정의 ===
 OPERATOR_PRECEDENCE = {
     '*': 2, '/': 2,
     '+': 3, '-': 3,
@@ -117,7 +116,7 @@ class Parser:
     def parseProgram(self):
         pos = SourcePos()
         self.start(pos)
-        decls = self.parseDeclSequence()  # <-- 핵심 수정
+        decls = self.parseDeclSequence()
         self.finish(pos)
         return Program(decls, pos)
 
